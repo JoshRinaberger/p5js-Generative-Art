@@ -2,8 +2,9 @@ function setup() {
   createCanvas(800, 800);
   colorMode(HSB, 360, 100, 100, 100);
   noStroke();
-  //simplePerlinNoise();
+  
   coloredPerlinNoise();
+  simplePerlinNoise();
 }
 
 /*
@@ -17,7 +18,7 @@ function simplePerlinNoise() {
   for (i = 0; i < width; i++) {
     for (j = 0; j < height; j++) {
       let n = noise(i * resolution, j * resolution);
-      let alph = 40;
+      let alph = 20;
       let brt = map(n, 0, 1, 0, 100);
       fill(0, 0, brt, alph);
 
