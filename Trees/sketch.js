@@ -1,0 +1,37 @@
+function setup() {
+  createCanvas(800, 800);
+  angleMode(DEGREES);
+
+  noLoop();
+}
+
+function draw() {
+  background(100);
+
+  // align to center
+  translate(width / 2, height - height / 8);
+
+  drawBranch(height / random(7, 9));
+}
+
+function drawBranch(length) {
+  push();
+  if (length > 10) {
+
+    strokeWeight(map(length, 10, 100, 1, 15));
+    //brown
+    stroke(70, 40, 20);
+
+    line(0, 0, 0, -length);
+
+    // rotate all further branches
+    translate(0, -length);
+
+    rotate(random(20, 30));
+    drawBranch(length * random(.7, .9));
+
+    rotate(random(-50, -60))
+    drawBranch(length * random(.7, .9));
+  }
+  pop();
+}
